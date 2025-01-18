@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Gaming Club</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .navbar-custom {
+            background: linear-gradient(90deg, #000000, #ff0000, #8a2be2);
+        }
+
+        .navbar-nav .nav-item.active a {
+            border-bottom: 2px solid #0000ff;
+        }
+        .hero-section {
+            background: url('https://wallpapercave.com/wp/wp7346888.jpg') no-repeat center center;
+            background-size: cover;
+            height: 60vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-text {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            background: linear-gradient(90deg, #ff0000, #8a2be2, #000000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            opacity: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 3s forwards, slideInOut 4s ease-in-out infinite;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInOut {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* Fade In Section Title and Text */
+        .club-title, .club-description, .new-section-text {
+            opacity: 0;
+            animation: slideInFromLeft 1s forwards;
+        }
+
+        .club-title {
+            font-size: 2.5rem;
+            color: #ff5733;
+            font-weight: bold;
+            animation-delay: 0.5s;
+        }
+
+        .club-description {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: white;
+            animation-delay: 1s;
+        }
+
+        .new-section-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: #ff5733;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .card {
+            border: 3px solid #8a2be2;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideInCard 1s forwards;
+        }
+
+        .card:hover {
+            border: 3px solid #ff5733;
+            box-shadow: 0 4px 20px rgba(255, 87, 51, 0.8);
+            transform: scale(1.05);
+        }
+
+        @keyframes slideInCard {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .img-fluid {
+            border-radius: 15px;
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideInImage 1s forwards;
+        }
+
+        @keyframes slideInImage {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        footer {
+            background: linear-gradient(145deg, #1f1f1f, #3e3e3e);
+            color: #fff;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #ff5733;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin: 5px 0;
+        }
+
+        .footer-links h5 {
+            color: #ff5733;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-gamepad"></i> Club Gaming
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/assets/html - css - javascript - bootstrap/index.html#Acceuil"
+                            target="_blank">
+                            <i class="fas fa-home"></i> Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./jeux.html" target="_blank">
+                            <i class="fas fa-gamepad"></i> Jeux
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Communaute.html" target="_blank">
+                            <i class="fas fa-users"></i> Communauté
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <h1 class="hero-text text-warning bg-outline-danger">WELCOME TO CLUB GAMING</h1>
+    </section>
+
+    <div id="Acceuil">
+        <div class="container text-center mt-5">
+            <h2 class="club-title text-primary">Bienvenue au Club Gaming</h2>
+            <p class="club-description">
+                Le Club Gaming est un lieu où les passionnés de jeux vidéo se réunissent pour partager des expériences,
+                des stratégies et des moments de détente. Rejoignez-nous pour vivre l'expérience ultime du gaming !
+            </p>
+        </div>
+    </div>
+
+    <div class="new-section-text text-primary">
+        <h3><b>Qu'est-ce qu'il y a dans ce club de gaming ?</b></h3>
+    </div>
+
+    <div class="container content">
+        <p class="text-center">
+            <strong><span style="font-size: 20px;">Une boutique où vous pouvez acheter :</span></strong><br>
+            Des jeux vidéo, des cartes graphiques, des ordinateurs puissants, des consoles de jeux de dernière
+            génération.<br><br>
+            <strong><span style="font-size: 20px;">Trois chambres de gaming spécialement conçues pour des
+                expériences uniques :</span></strong><br>
+            Chambre 1 : Jeux de voiture – Profitez de jeux de course en haute définition avec des simulateurs.<br>
+            Chambre 2 : PC Gamers – Accédez à des ordinateurs ultra-puissants pour jouer à des jeux exigeants.<br>
+            Chambre 3 : Consoles – Jouez à des jeux vidéo sur les dernières consoles comme la PlayStation, Xbox, etc.<br><br>
+            <strong><span style="font-size: 20px;">Des espaces VIP</span> pour ceux qui recherchent un confort
+            exceptionnel avec des équipements de gaming haut de gamme et un environnement immersif.<br><br>
+            <strong><span style="font-size: 20px;">Une communauté de gamers active,</strong> avec des défis
+            réguliers et la possibilité de rencontrer des joueurs passionnés.
+        </p>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center text-primary"><b>Images du Club Gaming</b></h2><br>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="/assets/images/vip room.jfif" alt="Club Image 1" class="img-fluid">
+            </div>
+            <div class="col-md-3">
+                <img src="/assets/images/guys playing 2.jfif" alt="Club Image 2" class="img-fluid">
+            </div>
+            <div class="col-md-3">
+                <img src="/assets/images/store and club.jfif" alt="Club Image 3" class="img-fluid">
+            </div>
+            <div class="col-md-3">
+                <img src="/assets/images/aa50ab50-836c-45d0-8a33-1c49823e7bdf.jfif" alt="Club Image 4" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h4 class="text-center text-primary"><b>Nos Chambres de Gaming</b></h4><br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/race.jfif" class="card-img-top" alt="Gaming Room 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Chambre 1: Jeux de Voiture</h5>
+                        <p class="card-text">Profitez de simulateurs de course en haute définition pour une expérience
+                            immersive.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/pc's.jfif" class="card-img-top" alt="Gaming Room 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Chambre 2: PC Gamers</h5>
+                        <p class="card-text">Accédez à des ordinateurs ultra-puissants pour jouer aux derniers jeux
+                            exigeants.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/vipp.jfif" class="card-img-top" alt="Gaming Room 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Chambre 3: VIP</h5>
+                        <p class="card-text">Tu peux jouer seul ou avec un ami dans cette chambre VIP exclusive.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center py-4">
+            <div class="footer-links">
+                <div class="col-md-4">
+                    <h5>Navigation</h5>
+                    <ul>
+                        <li><a href="./index.html" target="_blank" class="text-light">Accueil</a></li>
+                        <li><a href="./jeux.html" target="_blank" class="text-light">Jeux</a></li>
+                        <li><a href="./Communaute.html" target="_blank" class="text-light">Communauté</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>Email: yassineelmoudentaha@gmail.com</p>
+                    <p>Tel: +212621438253</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Suivez-nous</h5>
+                    <a href="https://www.facebook.com/share/g/1XFm4w2YHn/" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/H_bk_off" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/eblue_maroc?igsh=MW40YXJqZXR0Njc1ZA==" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitch.tv/alexforc2004" class="text-light me-3"><i class="fab fa-twitch"></i></a>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: #ff5733;">
+            <p>&copy; 2025 Club Gaming - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybOiR1DX7L7Z5KU5S/4VxBzph6tXfe3J/ayT3+VR1SmIYQpZZ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-mQ93nK2hGE1r8bxWrnU7l8cn1l7oQX2J7tXkS3Bx3HpysO58i6g0wnR6XkT6Q62h" crossorigin="anonymous"></script>
+</body>
+</html>
