@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <title>Versus Area Navigator</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar-custom {
+            background: linear-gradient(90deg, #000000, #ff0000, #8a2be2);
+        }
+
+        .navbar {
+            margin-bottom: 50px;
+        }
+
+        .container {
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #ff5733;
+            margin-bottom: 50px;
+        }
+
+        /* Style for the search bar */
+        .search-bar {
+            margin-top: 20px;
+            padding: 12px;
+            width: 60%;
+            border-radius: 25px;
+            background-color: #333;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border: 2px solid #ff5733;
+        }
+
+        /* Style for suggestions */
+        .suggestions-container {
+            margin-top: 20px;
+            max-width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5px 10px;
+            background-color: #333;
+            border-radius: 10px;
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+            color: #3498db; 
+            border-bottom: 1px solid #444;
+            transition: background-color 0.3s ease;
+        }
+
+        .suggestion-item:hover {
+            background-color: #444;
+            text-decoration: underline;
+        }
+
+        .answer-container {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #444;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            color: #ff5733;
+            display: none;
+        }
+
+        .logo img {
+            width: 60px;
+            border-radius: 120%;
+        }
+    </style>
+</head>
+<body class="bg-dark text-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://www.instagram.com/versus.ma?igsh=MWY0YjZkaGF6M3Zvcw==">
+                <div class="logo"><img src="/assets/images/469551645_122107391486650888_5297124717256526648_n.jpg"> Versus Club Gaming</div> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./index.html" target="_blank">
+                            <i class="fas fa-home"></i> Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./jeux.html" target="_blank">
+                            <i class="fas fa-gamepad"></i> Jeux
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Communaute.html" target="_blank">
+                            <i class="fas fa-users"></i> Communauté
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.guichet.com/famille-loisirs/tournoi-amateur-ramadan-versus-cup-ea-fc-25-affrontez-128-joueurs-et-tentez-de-gagner-le-cash-prize" target="_blank">
+                            <i class="fas fa-shopping-cart"></i> Shop
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="title">
+            VERSUS AREA NAVIGATEUR
+        </div>
+
+        <input type="text" class="search-bar" id="searchInput" placeholder="Rechercher des informations Tap (e)..." oninput="showSuggestions()">
+
+        <div id="suggestions" class="suggestions-container"></div>
+
+    </div>
+
+    <script>
+        const questions = [
+            { question: "Qu'est-ce que le Versus Area Gaming Club ?", link: "./area_versus.html"},
+            { question: "Y a-t-il d'autres jeux en plus de ceux mentionnés ?", link: "./autre_jeux.html" },
+            { question: "Les configurations des PC sont-elles de haute qualité ou économiques ?", link: "./configuration.html" },
+            { question: "Les jeux sont-ils plutôt longs ou courts ?", link: "./temp.html" },
+            { question: "Les performances des jeux varient-elles selon les configurations ?", link: "./performance.html" },
+            { question: "Où se situe ce club exactement ?", link: "./adress.html" }
+        ];
+
+        function showSuggestions() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const suggestionsDiv = document.getElementById('suggestions');
+            suggestionsDiv.innerHTML = '';
+
+            if (input) {
+                const filteredSuggestions = questions.filter(item => item.question.toLowerCase().includes(input));
+
+                filteredSuggestions.forEach(item => {
+                    const suggestionElement = document.createElement('div');
+                    suggestionElement.classList.add('suggestion-item');
+
+                    const link = document.createElement('a');
+                    link.href = item.link;
+                    link.textContent = item.question;
+
+                    suggestionElement.appendChild(link);
+                    suggestionsDiv.appendChild(suggestionElement);
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
