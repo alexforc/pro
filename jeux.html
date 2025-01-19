@@ -168,10 +168,10 @@
             }
         }
 
-         .card:hover {
-            border: 3px solid #ff5733;
-            box-shadow: 0 4px 20px rgba(255, 87, 51, 0.8);
-            transform: scale(1.05);
+     .card:hover {
+            transform: scale(1.1) rotateY(10deg); /* Zoom in & slight rotation */
+            box-shadow: 0 10px 30px rgba(255, 87, 51, 0.8); /* Dynamic shadow */
+            border-color: #ff5733; /* Change border color */
         }
   
         .card img {
@@ -181,13 +181,15 @@
             border-radius: 15px;
         } 
         
-        .card {
-           border: 3px solid #8a2be2;
+       .card {
+            width: 18rem;
             border-radius: 15px;
-            margin-bottom: 20px;
+            margin: 20px;
+            border: 2px solid #8a2be2;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
             opacity: 0;
-            transform: translateX(-100%);
-            animation: slideInCard 1s forwards;
+            animation: fadeIn 1s forwards;
         }
         
         .text-primary {
