@@ -182,14 +182,12 @@
         } 
         
         .card {
-            width: 18rem;
+           border: 3px solid #8a2be2;
             border-radius: 15px;
-            margin: 20px;
-            border: 2px solid #8a2be2;
-            transition: all 0.3s ease-in-out;
-            cursor: pointer;
+            margin-bottom: 20px;
             opacity: 0;
-            animation: fadeIn 1s forwards;
+            transform: translateX(-100%);
+            animation: slideInCard 1s forwards;
         }
         
         .text-primary {
